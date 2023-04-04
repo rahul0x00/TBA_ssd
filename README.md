@@ -3,4 +3,4 @@
 #### Usage:
 
 ##### Just Run the script  and pass the disk SCSI id address
-##### e.g. bash tbw.sh /dev/sda
+##### *e.g. bash tbw.sh /dev/sda*
