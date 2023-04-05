@@ -7,10 +7,10 @@ read -p "Enter the device name(e.g. /dev/sda): " device_name
 sector_size=$(sudo smartctl -i $device_name | awk '/^Logical Sector Size|Sector Sizes/ {print $3}')
 
 # Getting the Total_LBAs_Written value for the device
-tbw=$(sudo smartctl -A $device_name | awk '/^246/ {print $10}')
+lba=$(sudo smartctl -A $device_name | awk '/^246/ {print $10}')
 
 #Calculating total byte writeen data
-tbw_g=$(bc -l <<< "$sector_size * $tbw / 1024^3")
+tbw_g=$(bc -l <<< "$sector_size * $lba / 1024^3")
 
 # Print the total written data in gigabytes
 #echo "*** $(date -R) ***" 
